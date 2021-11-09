@@ -15,9 +15,11 @@ public class HMDInfoManager : MonoBehaviour
         }
         else if(XRSettings.isDeviceActive && (XRSettings.loadedDeviceName == "MockHMD Display" || XRSettings.loadedDeviceName == "Mock HMD")){
             Debug.Log("Using Mock HMD.");
+            GameObject.Find("XR Device Simulator").SetActive(true);
         }
         else{
             Debug.Log("We have a headset " + XRSettings.loadedDeviceName);
+            GameObject.Find("XR Device Simulator").SetActive(false);
         }
     }
 
