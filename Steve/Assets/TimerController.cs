@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class TimerController : MonoBehaviour
 {
-    [SerializeField] private TextMesh timer;
+    [SerializeField] private TMP_Text timer;
     [SerializeField] private int seconds;
     [SerializeField] private int minutes;
 
