@@ -8,7 +8,8 @@ using UnityEngine;
 public class Hand : MonoBehaviour
     
 {
-    public float speed;
+    //Animation
+    [SerializeField] private float animationSpeed;
 
     Animator animator;
     SkinnedMeshRenderer mesh; //
@@ -46,13 +47,13 @@ public class Hand : MonoBehaviour
     {
         if (gripCurrent != gripTarget) 
         {
-            gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
+            gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * animationSpeed);
             //Hand animieren
             animator.SetFloat(animatorGripParam, gripCurrent);
         }
         if (triggerCurrent != triggerTarget) 
         {
-            triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * speed);
+            triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * animationSpeed);
             //Hand animieren
             animator.SetFloat(animatorTriggerParam, triggerCurrent);
         }
