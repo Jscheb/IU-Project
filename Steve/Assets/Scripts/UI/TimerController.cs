@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.Events;
 
 public class TimerController : MonoBehaviour
 {
@@ -10,17 +11,24 @@ public class TimerController : MonoBehaviour
     [SerializeField] private int seconds;
     [SerializeField] private int minutes;
 
+    public UnityEvent onEnd;
+
     // Start is called before the first frame update
     void Start()
     {
         timer.text = minutes + ":" + seconds;
-        StartCoroutine("Countdown");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine("Countdown");
     }
 
     public IEnumerator Countdown()
@@ -39,6 +47,7 @@ public class TimerController : MonoBehaviour
                 timer.text = minutes + ":" + seconds;
             yield return new WaitForSeconds(1);
         }
+        onEnd.Invoke();
         yield return null;
     }
 }
