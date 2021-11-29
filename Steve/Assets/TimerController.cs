@@ -33,8 +33,10 @@ public class TimerController : MonoBehaviour
                 minutes--;
                 seconds = 59;
             }
-
-            timer.text = minutes + ":" + seconds;
+            if(seconds < 10)
+                timer.text = minutes + ":0" + seconds;
+            else
+                timer.text = minutes + ":" + seconds;
             yield return new WaitForSeconds(1);
         }
         yield return null;
