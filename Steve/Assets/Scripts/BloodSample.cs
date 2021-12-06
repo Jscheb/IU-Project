@@ -12,11 +12,27 @@ public class BloodSample : MonoBehaviour
     {
         //Return Values or set local public variable, that can be accessed after a timer completed for checking the blood sample
         return 120;
+
+        //Or start timer
     }
 
     public void setCoordinates(float x, float y, float z)
     {
         //Change coordinates when model position is changes
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!bloodTaken)
+        {
+            Syringe sample = other.GetComponent<Syringe>();
+            if (sample != null)
+            {
+                Debug.Log("Blood sample wurde genommen");
+            }
+            bloodTaken = true;
+        }
+        
     }
 
 
