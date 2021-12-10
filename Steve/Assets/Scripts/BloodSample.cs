@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BloodSample : MonoBehaviour
 {
     public bool bloodTaken = false;
     private bool transparent = true;
+    public UnityEvent onBloodTaken;
 
 
     public int getBloodValues()
@@ -29,6 +31,7 @@ public class BloodSample : MonoBehaviour
             if (sample != null)
             {
                 Debug.Log("Blood sample wurde genommen");
+                onBloodTaken.Invoke();
             }
             bloodTaken = true;
         }
@@ -36,17 +39,21 @@ public class BloodSample : MonoBehaviour
     }
 
 
-    void setTransparency ()
+    public void setTransparency ()
     {
         //cube is only shown when VR Controller hovers over is or something 
         if(!transparent)
         {
             //TODO
             //set Transparency to false and make it invisible
+            transparent = true;
+            gameObject.SetActive(false);
         } else
         {
             //TODO
             //set Transparency to true and make it visible
+            transparent = false;
+            gameObject.SetActive(true);
         }
     }
     

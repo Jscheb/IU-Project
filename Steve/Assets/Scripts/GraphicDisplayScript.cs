@@ -5,7 +5,7 @@ using System;
 
 public class GraphicDisplayScript : MonoBehaviour
 {
-    [SerializeField] private GameObject leftScreen,rightScreen; 
+    [SerializeField] private GameObject leftScreen,rightScreen,leftTooltip; 
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +29,15 @@ public class GraphicDisplayScript : MonoBehaviour
     public void ActivateRightScreen()
     {
         rightScreen.SetActive(true);
+    }
+
+    public void ActivateLeftTooltip()
+    {
+        leftTooltip.SetActive(true);
+    }
+
+    public void DeactivateLeftTooltip()
+    {
+        leftTooltip.SetActive(false);
     }
 }
