@@ -7,6 +7,7 @@ public class LeftPanel : MonoBehaviour
 {
     public UnityEvent onStart;
     private Renderer meshRenderer;
+    [SerializeField] private bool startCountdown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,12 @@ public class LeftPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (startCountdown)
+        {
+            Debug.Log("Start Countdown (Admin tool)");
+            onStart.Invoke();
+            startCountdown = false;
+        }
     }
 
     public void ReactToHoverStart()

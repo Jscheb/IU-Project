@@ -47,6 +47,7 @@ public class TimerController : MonoBehaviour
                 timer.text = minutes + ":" + seconds;
             yield return new WaitForSeconds(1);
         }
+        Debug.Log("End Countdown");
         onEnd.Invoke();
         yield return null;
     }
