@@ -1,21 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class GraphicDisplayScript : MonoBehaviour
+public class RightPanel : MonoBehaviour
 {
-    [SerializeField] private GameObject leftScreen,rightScreen,leftTooltip;
     [SerializeField] private List<GameObject> content;
     [SerializeField] private GameObject leftbutton, rightbutton;
     int i = 0;
-
     // Start is called before the first frame update
     void Start()
     {
-        leftScreen.SetActive(false);
-        rightScreen.SetActive(false);
-
+        
     }
 
     // Update is called once per frame
@@ -26,7 +21,7 @@ public class GraphicDisplayScript : MonoBehaviour
 
     public void RightButtonClick()
     {
-        if(i < content.Count-1)
+        if (i < content.Count - 1)
         {
             content[i++].SetActive(false);
             content[i].SetActive(true);
@@ -37,7 +32,7 @@ public class GraphicDisplayScript : MonoBehaviour
             i = 0;
             content[i].SetActive(true);
         }
-        
+
     }
 
     public void LeftButtonClick()
@@ -50,30 +45,8 @@ public class GraphicDisplayScript : MonoBehaviour
         else
         {
             content[i].SetActive(false);
-            i = content.Count-1;
+            i = content.Count - 1;
             content[i].SetActive(true);
         }
-    }
-
-    public void ActivateLeftScreen()
-    {
-        leftScreen.SetActive(true);
-    }
-
-    public void ActivateRightScreen()
-    {
-        rightScreen.SetActive(true);
-    }
-
-    public void ActivateLeftTooltip()
-    {
-        if(leftTooltip != null)
-            leftTooltip.SetActive(true);
-    }
-
-    public void DeactivateLeftTooltip()
-    {
-        if (leftTooltip != null)
-            leftTooltip.SetActive(false);
     }
 }
