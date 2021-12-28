@@ -21,6 +21,8 @@ public class HMDInfoManager : MonoBehaviour
             Debug.Log("We have a headset " + XRSettings.loadedDeviceName);
             GameObject.Find("XR Device Simulator").SetActive(false);
         }
+
+        
     }
 
     // Update is called once per frame

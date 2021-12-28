@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class BloodSample : MonoBehaviour
 {
     public bool bloodTaken = false;
     private bool transparent = true;
     public UnityEvent onBloodTaken;
-
+    private AudioClip test;
 
     public int getBloodValues()
     {
@@ -32,6 +33,8 @@ public class BloodSample : MonoBehaviour
             {
                 Debug.Log("Blood sample wurde genommen");
                 onBloodTaken.Invoke();
+
+                HapticManager.singleton.TriggerHapticFeedback(GameObject.Find("LeftHandController").GetComponent<ActionBasedController>());
             }
             bloodTaken = true;
         }

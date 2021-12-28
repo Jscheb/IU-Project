@@ -15,7 +15,9 @@ public class HandController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         controller = GetComponent<ActionBasedController>();
+            Haptics.singleton.RumbleLeft();
     }
 
     // Update is called once per frame
