@@ -17,7 +17,7 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         timer.text = minutes + ":" + seconds;
-        
+        Debug.Log(GameObject.Find("LeftHand Controller"));
     }
 
     // Update is called once per frame

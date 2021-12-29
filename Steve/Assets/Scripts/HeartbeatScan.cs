@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HeartbeatScan : MonoBehaviour
 {
@@ -22,8 +23,29 @@ public class HeartbeatScan : MonoBehaviour
         {
             Debug.Log("Heartbeat wurde gesteroscopiert jaaa");
                 onheartbeatScanned.Invoke();
-        }
+
+                if (GameObject.Find("LeftHand Controller").GetComponent<XRRayInteractor>().interactablesSelected.Contains(other.GetComponent<XRGrabInteractable>()))
+                    StartCoroutine(Buzz(0));
+                if (GameObject.Find("RightHand Controller").GetComponent<XRRayInteractor>().interactablesSelected.Contains(other.GetComponent<XRGrabInteractable>()))
+                    StartCoroutine(Buzz(1));
+            }
         heartbeatScanned = true;
+        }
+    }
+
+    private IEnumerator Buzz(int i)
+    {
+        if (i == 0)
+        {
+            Haptics.singleton.leftactive = true;
+            yield return new WaitForSeconds(0.1f);
+            Haptics.singleton.leftactive = false;
+        }
+        else
+        {
+            Haptics.singleton.rightactive = true;
+            yield return new WaitForSeconds(0.1f);
+            Haptics.singleton.rightactive = false;
         }
     }
 

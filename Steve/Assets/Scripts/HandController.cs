@@ -17,7 +17,6 @@ public class HandController : MonoBehaviour
     {
         
         controller = GetComponent<ActionBasedController>();
-            Haptics.singleton.RumbleLeft();
     }
 
     // Update is called once per frame
