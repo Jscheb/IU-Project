@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LeftPanel : MonoBehaviour
+public class ArrowButton : MonoBehaviour
 {
     public UnityEvent onStart;
     private Renderer meshRenderer;
@@ -22,12 +22,7 @@ public class LeftPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startCountdown)
-        {
-            Debug.Log("Start Countdown (Admin tool)");
-            onStart.Invoke();
-            startCountdown = false;
-        }
+
     }
 
     public void ReactToHoverStart()

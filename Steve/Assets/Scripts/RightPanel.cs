@@ -7,16 +7,31 @@ public class RightPanel : MonoBehaviour
     [SerializeField] private List<GameObject> content;
     [SerializeField] private GameObject leftbutton, rightbutton;
     int i = 0;
+
+    public Color colorOG;
+    public Color colorHover;
+    private Renderer meshRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        meshRenderer = GetComponent<Renderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void ReactToHoverStart()
+    {
+        meshRenderer.material.color = colorHover * 1.5f;
+    }
+
+    public void ReactToHoverStop()
+    {
+        meshRenderer.material.color = colorOG;
     }
 
     public void RightButtonClick()
