@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class EKGProbe : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class EKGProbe : MonoBehaviour
         Rigidbody rbdy = gameObject.GetComponent<Rigidbody>();
 
         //Stop Moving/Translating
-        rbdy.isKinematic = true;
+
+        rbdy.Sleep();
+
+        XRGrabInteractable grabby = gameObject.GetComponent<XRGrabInteractable>();
+        grabby.enabled = false;
     }
 }

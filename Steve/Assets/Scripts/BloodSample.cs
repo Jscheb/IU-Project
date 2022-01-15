@@ -6,9 +6,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BloodSample : MonoBehaviour
 {
-    public bool bloodTaken = false;
+    public bool bloodTakenOnce = false;
+    public bool bloodTakenTwice = false;
+    public bool cooldown = false;
     private bool transparent = true;
     public UnityEvent onBloodTaken;
+    public UnityEvent onBloodTakenTwice;
     private AudioClip test;
 
     public int getBloodValues()
@@ -26,7 +29,7 @@ public class BloodSample : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!bloodTaken)
+        if(!bloodTakenOnce)
         {
             Syringe sample = other.GetComponent<Syringe>();
             if (sample != null)
@@ -39,9 +42,36 @@ public class BloodSample : MonoBehaviour
                 if (GameObject.Find("RightHand Controller").GetComponent<XRRayInteractor>().interactablesSelected.Contains(other.GetComponent<XRGrabInteractable>()))
                     StartCoroutine(Buzz(1));
             }
-            bloodTaken = true;
+            bloodTakenOnce = true;
+        }
+        else if(bloodTakenOnce && !bloodTakenTwice && !cooldown)
+        {
+            Syringe sample = other.GetComponent<Syringe>();
+            if (sample != null)
+            {
+                Debug.Log("Blood sample wurde genommen but again");
+                onBloodTakenTwice.Invoke();
+
+                if (GameObject.Find("LeftHand Controller").GetComponent<XRRayInteractor>().interactablesSelected.Contains(other.GetComponent<XRGrabInteractable>()))
+                    StartCoroutine(Buzz(0));
+                if (GameObject.Find("RightHand Controller").GetComponent<XRRayInteractor>().interactablesSelected.Contains(other.GetComponent<XRGrabInteractable>()))
+                    StartCoroutine(Buzz(1));
+            }
+            bloodTakenTwice = true;
         }
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        cooldown = true;
+        StartCoroutine(CoolDown());
+    }
+
+    private IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(10f);
+        cooldown = false;
     }
 
     private IEnumerator Buzz(int i)

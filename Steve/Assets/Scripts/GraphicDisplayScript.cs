@@ -5,17 +5,17 @@ using System;
 
 public class GraphicDisplayScript : MonoBehaviour
 {
-    [SerializeField] private GameObject leftScreen,rightScreen,leftTooltip;
+    [SerializeField] private GameObject leftScreen, secondLeftScreen,rightScreen,leftTooltip;
     [SerializeField] private List<GameObject> content;
     [SerializeField] private GameObject leftbutton, rightbutton;
-    int i = 0;
+    [SerializeField] int i = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         leftScreen.SetActive(false);
         rightScreen.SetActive(false);
-
+        secondLeftScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class GraphicDisplayScript : MonoBehaviour
 
     public void RightButtonClick()
     {
+        Debug.Log("Riught Arrow");
         if(i < content.Count-1)
         {
             content[i++].SetActive(false);
@@ -63,6 +64,12 @@ public class GraphicDisplayScript : MonoBehaviour
     public void ActivateRightScreen()
     {
         rightScreen.SetActive(true);
+    }
+
+    public void ActivateLeftScreenTwice()
+    {
+        leftScreen.SetActive(false);
+        secondLeftScreen.SetActive(true);
     }
 
     public void ActivateLeftTooltip()

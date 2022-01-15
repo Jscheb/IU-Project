@@ -19,10 +19,12 @@ public class EKGScan : MonoBehaviour
     {
         if (!ekgTaken)
         {
+            Debug.Log("Ekg is being taken");
+            Debug.Log(other);
             EKGProbe sample = other.GetComponent<EKGProbe>();
             if (sample != null)
             {
-                Debug.Log("Blood sample wurde genommen");
+                Debug.Log("EKG wurde genommen");
                 sample.DisableMovement();
                 onEKGTaken.Invoke();
 
