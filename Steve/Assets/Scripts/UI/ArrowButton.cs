@@ -34,9 +34,4 @@ public class ArrowButton : MonoBehaviour
     {
         meshRenderer.material.color = colorOG;
     }
-
-    public void StartProgram()
-    {
-        onStart.Invoke();
-    }
 }
