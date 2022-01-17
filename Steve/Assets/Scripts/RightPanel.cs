@@ -6,7 +6,7 @@ public class RightPanel : MonoBehaviour
 {
     [SerializeField] private List<GameObject> content;
     [SerializeField] private GameObject leftbutton, rightbutton;
-    int i = 0;
+    [SerializeField] int i = 0;
 
     public Color colorOG;
     public Color colorHover;
@@ -36,6 +36,7 @@ public class RightPanel : MonoBehaviour
 
     public void RightButtonClick()
     {
+        Debug.Log("Riught Arrow");
         if (i < content.Count - 1)
         {
             content[i++].SetActive(false);
@@ -52,6 +53,7 @@ public class RightPanel : MonoBehaviour
 
     public void LeftButtonClick()
     {
+        Debug.Log("Left Arrow");
         if (i > 0)
         {
             content[i--].SetActive(false);

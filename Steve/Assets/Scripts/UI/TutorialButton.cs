@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ArrowButton : MonoBehaviour
+public class TutorialButton : MonoBehaviour
 {
     private Renderer meshRenderer;
+    [SerializeField] private GameObject tutorial;
 
     public Color colorOG;
     public Color colorHover;
@@ -31,5 +32,13 @@ public class ArrowButton : MonoBehaviour
     public void ReactToHoverStop()
     {
         meshRenderer.material.color = colorOG;
+    }
+
+    public void OpenTutorial()
+    {
+        if(tutorial.activeSelf)
+            tutorial.SetActive(false);
+        else
+            tutorial.SetActive(true);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LeftPanel : MonoBehaviour
 {
@@ -43,5 +44,15 @@ public class LeftPanel : MonoBehaviour
     public void StartProgram()
     {
         onStart.Invoke();
+    }
+
+    public void Reset()
+    {
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
