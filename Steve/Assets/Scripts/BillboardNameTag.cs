@@ -6,12 +6,12 @@ public class BillboardNameTag : MonoBehaviour
 {
 
     public Transform textLookTargetTransform;
-    [SerializeField] private float yOffset;
+    [SerializeField] private float yOffset, xOffset = 0.01f, zOffset;
     // Start is called before the first frame update
     void Start()
     {
         FaceTextMeshToCamera();
-        transform.position = transform.parent.position + new Vector3(0.01f, yOffset, 0f);
+        transform.position = transform.parent.position + new Vector3(xOffset, yOffset, zOffset);
         gameObject.SetActive(false);
     }
 
@@ -21,7 +21,7 @@ public class BillboardNameTag : MonoBehaviour
         if (gameObject.activeSelf)
         {
             FaceTextMeshToCamera();
-            transform.position = transform.parent.position + new Vector3(0.005f, yOffset, 0f);
+            transform.position = transform.parent.position + new Vector3(xOffset, yOffset, zOffset);
         }
     }
 

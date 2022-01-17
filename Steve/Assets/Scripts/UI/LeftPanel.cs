@@ -9,6 +9,8 @@ public class LeftPanel : MonoBehaviour
     public UnityEvent onStart;
     private Renderer meshRenderer;
     [SerializeField] private bool startCountdown = false;
+    [SerializeField] private GameObject befund;
+    public bool orderedXRay = false;
 
     public Color colorOG;
     public Color colorHover;
@@ -54,5 +56,23 @@ public class LeftPanel : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void XRay()
+    {
+        orderedXRay = true;
+        befund.SetActive(true);
+    }
+
+    public void Befund()
+    {
+        if (GameObject.Find("Call XRay").GetComponent<LeftPanel>().orderedXRay)
+        {
+            befund.SetActive(true);
+        }
+        else
+        {
+            meshRenderer.material.color = colorHover * 1.5f;
+        }
     }
 }

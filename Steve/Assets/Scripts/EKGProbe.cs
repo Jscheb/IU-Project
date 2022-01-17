@@ -25,7 +25,7 @@ public class EKGProbe : MonoBehaviour
 
         //Stop Moving/Translating
 
-        rbdy.Sleep();
+        Destroy(rbdy);
 
         XRGrabInteractable grabby = gameObject.GetComponent<XRGrabInteractable>();
         grabby.enabled = false;
