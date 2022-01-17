@@ -6,7 +6,7 @@ public class RightPanel : MonoBehaviour
 {
     [SerializeField] private List<GameObject> content;
     [SerializeField] private GameObject leftbutton, rightbutton;
-    [SerializeField] int i = 0;
+    [SerializeField] public int i = 0;
 
     public Color colorOG;
     public Color colorHover;
