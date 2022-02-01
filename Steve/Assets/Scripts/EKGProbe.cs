@@ -21,13 +21,15 @@ public class EKGProbe : MonoBehaviour
 
     public void DisableMovement()
     {
+        XRGrabInteractable grabby = gameObject.GetComponent<XRGrabInteractable>();
+        Destroy(grabby);
+
         Rigidbody rbdy = gameObject.GetComponent<Rigidbody>();
 
         //Stop Moving/Translating
 
         Destroy(rbdy);
 
-        XRGrabInteractable grabby = gameObject.GetComponent<XRGrabInteractable>();
-        grabby.enabled = false;
+        
     }
 }

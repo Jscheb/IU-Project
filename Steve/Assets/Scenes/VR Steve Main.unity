@@ -5908,7 +5908,7 @@ Transform:
   m_GameObject: {fileID: 144896269}
   m_LocalRotation: {x: 0.0704754, y: 0.703586, z: -0.703586, w: 0.0704754}
   m_LocalPosition: {x: -6.3449, y: 1.274, z: -1.7084}
-  m_LocalScale: {x: 0.030390473, y: 1, z: 0.023568112}
+  m_LocalScale: {x: 0.03039047, y: 1, z: 0.023568112}
   m_Children: []
   m_Father: {fileID: 1119179669}
   m_RootOrder: 6
@@ -13980,7 +13980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Herzinfakt
+  m_text: Herzinfarkt
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15054,7 +15054,7 @@ Transform:
   m_GameObject: {fileID: 858282570}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.597}
-  m_LocalScale: {x: 0.042, y: 1, z: 0.075}
+  m_LocalScale: {x: 0.042, y: 1, z: -0.075}
   m_Children: []
   m_Father: {fileID: 1683259088}
   m_RootOrder: 2
@@ -30726,7 +30726,7 @@ Transform:
   m_GameObject: {fileID: 1801872362}
   m_LocalRotation: {x: -0.7826082, y: 0, z: 0, w: 0.62251467}
   m_LocalPosition: {x: -5.351, y: 1.328, z: -1.96}
-  m_LocalScale: {x: 0.03, y: 1, z: 0.03}
+  m_LocalScale: {x: -0.03, y: 1, z: 0.03}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
